@@ -1,10 +1,11 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.concurrent.TimeUnit;
 
@@ -68,7 +69,7 @@ public class ApplicationManager {
         }
     }
 
-    private boolean isElementPresent(By by) {
+    public boolean isElementPresent(By by) {
         try {
             wd.findElement(by);
             return true;
@@ -77,7 +78,7 @@ public class ApplicationManager {
         }
     }
 
-    private boolean isAlertPresent() {
+    public boolean isAlertPresent() {
         try {
             wd.switchTo().alert();
             return true;
@@ -86,7 +87,7 @@ public class ApplicationManager {
         }
     }
 
-    private String closeAlertAndGetItsText() {
+    public String closeAlertAndGetItsText() {
         try {
             Alert alert = wd.switchTo().alert();
             String alertText = alert.getText();
